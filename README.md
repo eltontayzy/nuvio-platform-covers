@@ -9,14 +9,17 @@ never cut it.
 Nuvio loads them from the raw GitHub links, for example:
 
 ```
-https://raw.githubusercontent.com/eltontayzy/nuvio-platform-covers/main/covers/netflix.png
+https://raw.githubusercontent.com/eltontayzy/nuvio-platform-covers/main/covers/netflix.png?v=2
 ```
 
 ## Changing a cover
 
 1. Edit the gradient or logo size for that service in `source/cover.html` (the `C` table).
 2. Run `node source/render.mjs` to re-render everything into `covers/` (drawn at 2x and scaled down, so it needs ImageMagick).
-3. Commit and push. Nuvio picks up the new image once GitHub's cache expires (about 5 minutes), keeping the same link.
+3. Commit and push.
+4. Bump the `?v=` number on the cover links in the Nuvio collection (export, edit, Import with Overwrite on each
+   profile). The apps keep a downloaded cover for as long as its link stays the same, so without a new `?v=` they
+   go on showing the old image.
 
 Logos come from Wikimedia Commons. `appletv-lum.svg` rebuilds Apple's 2025 glass Apple TV logo (iridescent rim) on top of
 the flat vector mark. The logos are trademarks of their owners and are here only to label the folders in a personal setup.
