@@ -1,0 +1,26 @@
+<!doctype html><html><head><style>
+html,body{margin:0;width:1280px;height:720px;overflow:hidden}
+.t{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.t img{display:block}
+.white{filter:brightness(0) invert(1)}
+.glow{position:absolute;inset:-20%;filter:blur(70px);opacity:.95}
+.glow i{position:absolute;border-radius:50%;display:block}
+.glass img{filter:drop-shadow(0 6px 14px rgba(0,0,0,.6)) drop-shadow(0 0 26px rgba(190,170,255,.18))}
+.lum img{filter:brightness(0) invert(1) drop-shadow(0 0 18px rgba(255,255,255,.55)) drop-shadow(0 0 60px rgba(255,190,240,.45))}
+</style></head><body><div class="t" id="t"><div class="glow" id="g" hidden>
+<i style="left:18%;top:30%;width:520px;height:420px;background:#ff6a2b"></i>
+<i style="left:38%;top:12%;width:560px;height:460px;background:#ff2d8a"></i>
+<i style="left:58%;top:34%;width:560px;height:440px;background:#7b3cff"></i>
+<i style="left:44%;top:58%;width:520px;height:380px;background:#1f8bff"></i>
+</div><img id="l" style="position:relative"></div>
+<script>
+const C={
+ netflix:{bg:'radial-gradient(120% 90% at 50% 110%, #8f0610 0%, #3a0306 38%, #0a0a0a 75%)', src:'netflix', w:600, white:false},
+ prime:{bg:'linear-gradient(135deg, #0a2a5c 0%, #1279e6 50%, #3fb6ff 100%)', src:'prime', w:620, white:true},
+ disney:{bg:'radial-gradient(120% 130% at 80% 0%, #2fd3c8 0%, #0f8a9a 28%, #0a3f63 58%, #04172b 100%)', src:'disney', w:560, white:true},
+ appletv:{bg:'radial-gradient(90% 90% at 50% 40%, #232325 0%, #141415 60%, #0b0b0c 100%)', src:'appletv-lum', h:290, glass:true},
+ hbomax:{bg:'radial-gradient(120% 110% at 50% 115%, #6a2bff 0%, #34118f 35%, #10052e 65%, #000 100%)', src:'hbomax', h:330, white:true},
+};
+const c=C[location.hash.slice(1)]; document.getElementById('t').style.background=c.bg;
+const l=document.getElementById('l'); l.src='svg/'+c.src+'.svg'; if(c.w) l.style.width=c.w+'px'; if(c.h) l.style.height=c.h+'px'; if(c.white) l.className='white'; if(c.glass) document.getElementById('t').classList.add('glass'); if(c.lum){document.getElementById('g').hidden=false; document.getElementById('t').classList.add('lum');}
+</script></body></html>
