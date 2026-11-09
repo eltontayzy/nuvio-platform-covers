@@ -15,7 +15,7 @@ https://raw.githubusercontent.com/eltontayzy/nuvio-platform-covers/main/covers/n
 ## Changing a cover
 
 1. Edit the gradient or logo size for that service in `source/cover.html` (the `C` table).
-2. Run `node source/render.mjs` to re-render everything into `covers/`.
+2. Run `node source/render.mjs` to re-render everything into `covers/` (drawn at 2x and scaled down, so it needs ImageMagick).
 3. Commit and push. Nuvio picks up the new image once GitHub's cache expires (about 5 minutes), keeping the same link.
 
 Logos come from Wikimedia Commons. `appletv-lum.svg` rebuilds Apple's 2025 glass Apple TV logo (iridescent rim) on top of
